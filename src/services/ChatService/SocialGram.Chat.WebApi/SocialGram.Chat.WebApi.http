@@ -1,0 +1,6 @@
+@SocialGram.Chat.WebApi_HostAddress = http://localhost:5216
+
+GET {{SocialGram.Chat.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

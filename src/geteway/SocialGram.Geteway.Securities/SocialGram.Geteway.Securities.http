@@ -1,0 +1,6 @@
+@SocialGram.Geteway.Securities_HostAddress = http://localhost:5159
+
+GET {{SocialGram.Geteway.Securities_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
