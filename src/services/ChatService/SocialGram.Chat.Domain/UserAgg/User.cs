@@ -1,6 +1,8 @@
 ﻿using SocialGram.Chat.Domain._Common.Bases;
 using SocialGram.Chat.Domain._Common.Exceptions;
 using SocialGram.Chat.Domain._Common.Exceptions.GlobalExceptions;
+using SocialGram.Chat.Domain._Common.Exceptions.UserAggExceptions;
+using SocialGram.Chat.Domain.ChatAgg.Entities;
 using SocialGram.Chat.Domain.UserAgg.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -10,15 +12,17 @@ using System.Threading.Tasks;
 
 namespace SocialGram.Chat.Domain.UserAgg
 {
-	public class Users : BaseAggregate<long>
+	public class User : BaseAggregate<long>
 	{
 		public string FirstName { get; private set; }
 		public string LastName { get; private set; }
+		public string AccountName { get; set; }
 		public PhoneNumer PhoneNumber { get; private set; }
 		public string? AboutMe { get; private set; }
-		public string Job { get; private set; }
+		public string? Job { get; private set; }
+		public List<ChatParticipant>Chats {  get;  set; }
 
-		public Users(string firstName, string lastName, string phoneNumber)
+		public User(string firstName, string lastName, string phoneNumber)
 		{
 			Guard(firstName, lastName);
 			FirstName = firstName;
@@ -51,11 +55,11 @@ namespace SocialGram.Chat.Domain.UserAgg
 		{
 			if (string.IsNullOrEmpty(firstName))
 			{
-				throw new NullOrEmptyDomainDateException("وارد کردن نام ضروری است");
+				throw new FirstNameIsNotValid("وارد کردن نام ضروری است");
 			}
 			if (string.IsNullOrEmpty(lastName))
 			{
-				throw new NullOrEmptyDomainDateException("وارد کردن نام خانوادگی ضروری است");
+				throw new LastNameIsNotValid("وارد کردن نام خانوادگی ضروری است");
 			}
 
 		}

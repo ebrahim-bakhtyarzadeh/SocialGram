@@ -14,7 +14,7 @@ namespace SocialGram.Chat.Domain.UserAgg.ValueObjects
 			{
 				throw new PhoneNumerIsNotValid("شماره تلفن وارد شده نمیتواند خالی باشد");
 			}
-			if (!CheckPhoneNumberPattern.CheckPatternOfPhoneNumber(value))
+			if (!PhoneNumberChecker.CheckPatternOfPhoneNumber(value))
 			{
 				throw new PhoneNumerIsNotValid("شماره تلفن وارد شده معتبر نیست");
 			}

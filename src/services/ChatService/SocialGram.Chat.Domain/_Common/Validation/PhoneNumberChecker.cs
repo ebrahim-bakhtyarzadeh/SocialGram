@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SocialGram.Chat.Domain._Common.Validation
 {
-	public class CheckPhoneNumberPattern
+	public class PhoneNumberChecker
 	{
 		public static bool CheckPatternOfPhoneNumber(string phoneNumber)
 		{

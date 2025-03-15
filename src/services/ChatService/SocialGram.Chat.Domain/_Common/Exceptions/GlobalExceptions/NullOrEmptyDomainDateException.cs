@@ -8,11 +8,4 @@
         }
 
     }
-    public class InvalidDomainDataException : Exception
-    {
-        public InvalidDomainDataException(string message):base(message) 
-        {
-               
-        }
-    }
 }
